@@ -1,4 +1,6 @@
 import csv
+
+
 class DBLoad:
     def __init__(self):
         self.containhate = []
