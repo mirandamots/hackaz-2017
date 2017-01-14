@@ -2,10 +2,12 @@
 
 ## Requirements
 
-Install pip on your machine. See this guide: https://packaging.python.org/installing/
+Install Miniconda, which will set your default Python package to 3.5.
 
-Once pip is installed, run the following command:
+Then, run the following command in the project directory:
 
-`pip install --ignore-installed -r "requirements.txt"`
+```
+pip install -r "requirements.txt"
+```
 
 This will install all the required libraries on your machine, drawing from the requirements.txt file. If you add a library, mak sure you add it to the requirements!
