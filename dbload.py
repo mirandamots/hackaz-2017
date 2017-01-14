@@ -59,6 +59,6 @@ class DBLoad:
     def getOverallData(self):
         return self.overalldata;
 
-thisisaclass = DBLoad()
-thisisaclass.loadCSV()
-print(thisisaclass.getHateLevel())
+#thisisaclass = DBLoad()
+#thisisaclass.loadCSV()
+#print(thisisaclass.getHateLevel())
