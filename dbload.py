@@ -1,60 +1,64 @@
 import csv
+class DBLoad:
+    def __init__(self):
+        self.containhate = []
+        self.hatelevel = []
+        self.confidence = []
+        self.tweet = []
+        self.overalldata = []
 
-with open('hatespeech.csv', newline='', encoding='utf-8', errors='ignore') as f:
-    reader = csv.reader(f)
+    def loadCSV(self):
 
-    #included_cols specifies which column numbers we want to have access to
-    #column 5 - does this tweet contain hate speech
-    #column 6 - % confidence
-    #column 19 - tweet
+        with open('hatespeech.csv', newline='', encoding='utf-8', errors='ignore') as f:
+            reader = csv.reader(f)
 
-    #included_cols = [5, 6, 19]
+            #column 5 - does this tweet contain hate speech
+            #column 6 - % confidence
+            #column 19 - tweet
 
-    containhate = []
-    hatelevel = []
-    confidence = []
-    tweet = []
-    overalldata = []
+            not_offensive = 0
+            offensive = 1
+            hatespeech = 4
 
-    not_offensive = 0
-    offensive = 1
-    hatespeech = 4
+            #look through all rows and fill lists
+            for row in reader:
 
+                lvl = -1
 
-    for row in reader:
-        #row = list(row[i] for i in included_cols)
-        lvl = -1
+                if row[5] == "The tweet is not offensive":
+                    lvl = 0
+                elif row[5] == "The tweet uses offensive language but not hate speech":
+                    lvl = offensive
+                elif row[5] == "The tweet contains hate speech":
+                    lvl = hatespeech
 
-        if row[5] == "The tweet is not offensive":
-            lvl = 0
-        elif row[5] == "The tweet uses offensive language but not hate speech":
-            lvl = offensive
-        elif row[5] == "The tweet contains hate speech":
-            lvl = hatespeech
-
-        hatelevel.append(lvl)
-        containhate.append(row[5])
-        confidence.append(row[6])
-        tweet.append(row[19])
-        overalldata.append([lvl, row[6], row[19]])
+                self.hatelevel.append(lvl)
+                self.containhate.append(row[5])
+                self.confidence.append(row[6])
+                self.tweet.append(row[19])
+                self.overalldata.append([lvl, row[6], row[19]])
 
 
     #returns a list of the strings decribing the level of offensiveness
-    def getContainHate():
-        return containhate;
+    def getContainHate(self):
+        return self.containhate;
 
     #returns a list of integers describing the level of offensiveness
-    def getHateLevel():
-        return hatelevel;
+    def getHateLevel(self):
+        return self.hatelevel;
 
     #returns the confidence meter
-    def getConfidence():
-        return confidence;
+    def getConfidence(self):
+        return self.confidence;
 
     #returns the tweets
-    def getTweets():
-        return tweets;
+    def getTweets(self):
+        return self.tweets;
 
     #returns the levels, the confidence, and the tweet
-    def getOverallData():
-        return overalldata;
+    def getOverallData(self):
+        return self.overalldata;
+
+thisisaclass = DBLoad()
+thisisaclass.loadCSV()
+print(thisisaclass.getHateLevel())
