@@ -28,7 +28,7 @@ class DBLoad:
                 lvl = -1
 
                 if row[5] == "The tweet is not offensive":
-                    lvl = 0
+                    lvl = not_offensive
                 elif row[5] == "The tweet uses offensive language but not hate speech":
                     lvl = offensive
                 elif row[5] == "The tweet contains hate speech":
