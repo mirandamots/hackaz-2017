@@ -1,9 +1,13 @@
-var jsonArr = JSON.parse( );
-var bayes = new classifier.Bayesian( );
+jQuery.getJSON("https://dl.dropboxusercontent.com/s/illwee486dmhaux/hatespeech.json").then(function(json) {
+	var bayes = new classifier.Bayesian( );
 
-var i = 0;
-var len = Object.keys(json).length;
+	for(var key in json) {
+	  console.log("training line: " + json[key].tweet_text);
+	  bayes.train(json[key].tweet_text, json[key].does_this_tweet_contain_hate_speech)
+	}
 
-for(i = 0; i < len; i++) {
-  bayes.train(jsonArr[i].tweet_text, jsonArr[i].does_this_tweet_contain_hate_speech)
-}
+	var bayesJson = bayes.toJSON();
+	console.log(bayesJson);
+
+	// TODO post that JSON to redis
+});
