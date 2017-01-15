@@ -1,9 +1,10 @@
 {
     "manifest_version": 2,
-    "name": "HateBlockPlus",
+    "name": "HateBlock",
     "version": "1.0",
     "description": "Uses machine learning to hide hateful tweets.",
     "permissions": ["https://twitter.com/*"],
+    "options_page": "options.html",
     "content_scripts": 
     [
         {
