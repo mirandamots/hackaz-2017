@@ -4,7 +4,7 @@
 
 HateBlocker is a Google Chrome extension that automatically hides tweets containing hate speech on twitter.
 
-Hate speech is identified using machine learning technology, powered by crowdflower's hate speech identification database. 
+Hate speech is identified using machine learning technology, powered by crowdflower's hate speech identification database.
 
 ## Requirements
 
