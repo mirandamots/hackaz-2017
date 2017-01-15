@@ -1,5 +1,16 @@
 var jsonArr = JSON.parse( );
-var bayes = new classifier.Bayesian( );
+var bayes = new classifier.Bayesian(
+  {
+  backend: {
+    type: 'Redis',
+    options: {
+      hostname: 'localhost', // default
+      port: 6379,            // default
+      name: 'emailspam'      // namespace for persisting
+    }
+  }
+}
+);
 
 var i = 0;
 var len = Object.keys(json).length;

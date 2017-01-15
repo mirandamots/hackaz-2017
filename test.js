@@ -1,35 +1,35 @@
 var bayes = new classifier.Bayesian();
 
-function readSingleFile(e) {
-  var file = e.target.files[0];
-  if (!file) {
-    return;
-  }
-  var reader = new FileReader();
-  reader.onload = function(e) {
-    var contents = e.target.result;
-    displayContents(contents);
-  };
-  reader.readAsText(file);
-}
-
-function displayContents(contents) {
-  var element = document.getElementById('file-content');
-  element.innerHTML = contents;
-}
-
-document.getElementById('file-input')
-  .addEventListener('change', readSingleFile, false);
-
-// Import the CSV.
-Papa.parse('hatespeech.csv', {
-	complete: function(results) {
-		console.log("Finished:", results.data);
-	}
-});
+// function readSingleFile(e) {
+//   var file = e.target.files[0];
+//   if (!file) {
+//     return;
+//   }
+//   var reader = new FileReader();
+//   reader.onload = function(e) {
+//     var contents = e.target.result;
+//     displayContents(contents);
+//   };
+//   reader.readAsText(file);
+// }
+//
+// function displayContents(contents) {
+//   var element = document.getElementById('file-content');
+//   element.innerHTML = contents;
+// }
+//
+// document.getElementById('file-input')
+//   .addEventListener('change', readSingleFile, false);
+//
+// // Import the CSV.
+// Papa.parse('hatespeech.csv', {
+// 	complete: function(results) {
+// 		console.log("Finished:", results.data);
+// 	}
+// });
 
 bayes.train("you're such a pile of slag", 'hate speech');
-bayes.train("slags are the worst", 'hate speech');
+bayes.train("slag are the worst", 'hate speech');
 bayes.train("I like eggs and ham", 'not');
 
 var category = bayes.classify("get out slags");
