@@ -7,6 +7,9 @@ class DBLoad:
         self.tweet = []
         self.overalldata = []
 
+        self.features = []
+        self.labels = []
+
     def loadCSV(self):
 
         with open('hatespeech.csv', newline='', encoding='utf-8', errors='ignore') as f:
@@ -16,9 +19,9 @@ class DBLoad:
             #column 6 - % confidence
             #column 19 - tweet
 
-            not_offensive = 0
-            offensive = 1
-            hatespeech = 4
+            not_offensive = -1
+            offensive = 0
+            hatespeech = 1
 
             #look through all rows and fill lists
             for row in reader:
@@ -37,6 +40,9 @@ class DBLoad:
                 self.confidence.append(row[6])
                 self.tweet.append(row[19])
                 self.overalldata.append([lvl, row[6], row[19]])
+                self.features.append([row[6], row[19]])
+                self.labels.append(lvl)
+
 
 
     #returns a list of the strings decribing the level of offensiveness
@@ -58,6 +64,14 @@ class DBLoad:
     #returns the levels, the confidence, and the tweet
     def getOverallData(self):
         return self.overalldata;
+
+    #return the features: the confidence level, the tweet
+    def getFeatures(self):
+        return self.features;
+
+    #return whether or not it is hate speech
+    def getLabels(self):
+        return self.labels;
 
 #thisisaclass = DBLoad()
 #thisisaclass.loadCSV()
