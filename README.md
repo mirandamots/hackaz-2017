@@ -2,12 +2,8 @@
 
 ## Requirements
 
-Install Miniconda, which will set your default Python package to 3.5.
+Install node/npm, then run:
 
-Then, run the following command in the project directory:
+`npm install brain`
 
-```
-pip install -r "requirements.txt"
-```
-
-This will install all the required libraries on your machine, drawing from the requirements.txt file. If you add a library, make sure you add it to the requirements!
+We're not doing a package.json unless we get a lot of dependencies...like, a lot a lot.
