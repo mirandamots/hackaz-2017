@@ -32,9 +32,10 @@ function replaceTwitterWord() {
 }
 
 function isHateSpeech(text){
-  console.log(text);
-
-  console.log(bayes.classify(text));
+  if(bayes.classify(text) > SENSITIVITY) {
+    console.log(text);
+  }
+  
   return (bayes.classify(text) > SENSITIVITY);
 }
 
