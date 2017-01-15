@@ -1,0 +1,14 @@
+{
+    "manifest_version": 2,
+    "name": "HateBlockPlus",
+    "version": "1.0",
+    "description": "Uses machine learning to hide hateful tweets.",
+    "content_scripts": 
+    [
+        {
+            "matches": ["*://*/*"],
+            "js": ["basic_plugin.js"],
+            "run_at": "document_end"
+        }
+    ]
+}
