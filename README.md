@@ -16,3 +16,8 @@ npm install classifier
 '''
 
 We're not doing a package.json unless we get a lot of dependencies...like, a lot a lot.
+
+## Install
+
+Open chrome://extensions
+Drag plugin.crx into Chrome.
