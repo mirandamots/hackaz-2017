@@ -3,12 +3,12 @@
     "name": "HateBlockPlus",
     "version": "1.0",
     "description": "Uses machine learning to hide hateful tweets.",
+    "permissions": ["https://twitter.com/*"],
     "content_scripts": 
     [
         {
-            "matches": ["*://*/*"],
-            "js": ["basic_plugin.js"],
-            "run_at": "document_end"
+            "matches": ["https://twitter.com/*"],
+            "js": ["basic_plugin.js"]
         }
     ]
 }
