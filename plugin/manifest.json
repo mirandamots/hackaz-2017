@@ -9,7 +9,7 @@
     [
         {
             "matches": ["https://twitter.com/*"],
-            "js": ["basic_plugin.js"]
+            "js": ["jquery.min.js", "classifier.js", "basic_plugin.js"]
         }
     ]
 }
