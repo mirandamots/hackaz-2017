@@ -2,12 +2,10 @@ jQuery.getJSON("https://dl.dropboxusercontent.com/s/illwee486dmhaux/hatespeech.j
 	var bayes = new classifier.Bayesian( );
 
 	for(var key in json) {
-	  console.log("training line: " + json[key].tweet_text);
 	  bayes.train(json[key].tweet_text, json[key].does_this_tweet_contain_hate_speech)
 	}
 
-	var bayesJson = bayes.toJSON();
+	var bayesJson = JSON.stringify(bayes.toJSON());
+	document.getElementById("container").innerHTML = bayesJson;
 	console.log(bayesJson);
-
-	// TODO post that JSON to redis
 });
