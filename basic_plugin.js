@@ -7,6 +7,8 @@ for (var tweet in tweets) {
   }
 }
 
+// we took walk() from // http://is.gd/mwZp7E
+
 function walk(node) {
   var child, next;
 
@@ -29,5 +31,5 @@ function walk(node) {
 
 
 function textHasHateSpeech() {
-  
+
 }
